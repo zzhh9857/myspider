@@ -1,0 +1,17 @@
+/images/
+/nbproject/
+*.DS_Store
+/download/
+/images6/
+/images7/
+/config/
+.idea
+.DS_Store
+.DS_Store?
+*.swp
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
