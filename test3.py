@@ -1,24 +1,13 @@
-# coding=utf-8
+from peewee import *;
 
-from threading import Thread
-import time
-import random
-import queue
-
-equque = queue.Queue()
+db = MySQLDatabase(host="127.0.0.1", user="root", passwd="123456", database="test", charset="utf-8");
 
 
-def run_thread(n):
-    if n == 1:
-        for j in range(9):
-            print('等待队列：')
-            print(str(j)+' 线程的值为：'+str(equque.get()))
+class User(Model):
+    name = CharField(unique=True, default='');
+    password = CharField(default='');
+    group = CharField(default='admin');
+    value = FloatField(default=0.0);
 
 
-threads = {}
-for i in range(10):
-    if i > 1:
-        equque.put(random.randint(10, 30))
-
-    Thread(target=run_thread, args={i, }).start()
-    time.sleep(random.randint(1, 3))
+User.create_table();
